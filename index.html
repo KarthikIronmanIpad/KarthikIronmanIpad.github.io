@@ -1,450 +1,479 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNIVERSE INFRATECH CONSULTING PVT LTD - Building Tomorrow's Skylines</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
-        }
-        /* Custom scrollbar for a modern look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-        .hero-background {
-            /* Updated background image path */
-            background-image: url('images/hero.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        /* Gradient for buttons */
-        .btn-primary {
-            background: linear-gradient(to right, #4F46E5, #6366F1);
-            transition: background 0.3s ease;
-        }
-        .btn-primary:hover {
-            background: linear-gradient(to right, #6366F1, #4F46E5);
-        }
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
+<title>Copper Heritage</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-    <!-- Header -->
-    <!-- Added 'top-0' to ensure the header sticks to the very top of the viewport -->
-    <header class="bg-white shadow-lg py-4 fixed w-full z-50 rounded-b-lg top-0">
-        <nav class="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
-            <a href="#home" class="flex items-center space-x-2">
-                <!-- Updated logo image path -->
-                <img src="images/logo.png" alt="UIC Logo" class="rounded-full w-10 h-10">
-                <span class="text-2xl font-bold text-gray-900">UNIVERSE INFRATECH CONSULTING &nbsp;<span class="text-indigo-600">PVT LTD</span></span>
-            </a>
-            <ul class="hidden md:flex space-x-8">
-                <li><a href="#home" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Home</a></li>
-                <li><a href="#projects" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Projects</a></li>
-                <li><a href="#about" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">About Us</a></li>
-                <li><a href="#team" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Team</a></li>
-                <li><a href="#contact" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Contact</a></li>
-            </ul>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
-                </svg>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white mt-2 px-4 py-2 shadow-inner rounded-b-lg">
-            <ul class="flex flex-col space-y-2">
-                <li><a href="#home" class="block py-2 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Home</a></li>
-                <li><a href="#projects" class="block py-2 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Projects</a></li>
-                <li><a href="#about" class="block py-2 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">About Us</a></li>
-                <li><a href="#team" class="block py-2 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Team</a></li>
-                <li><a href="#contact" class="block py-2 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Contact</a></li>
-            </ul>
-        </div>
-    </header>
+  :root{
+    --bg:#171512; --surface:#1E1B16; --surface-2:#24201A; --border:#3A332B; --border-soft:#2A251E;
+    --text:#F0E9DF; --text-dim:#CBBFAE; --muted:#9C8F79;
+    --accent:#C4703B; --accent-strong:#E0935C; --accent-ink:#2A1608;
+    --ok:#7DA382; --warn:#B4432E;
+    --font-display:'Fraunces',Georgia,serif; --font-body:'Public Sans',system-ui,sans-serif; --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;} }
+  img{max-width:100%;} a{color:inherit;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; text-wrap:balance;}
+  .eyebrow{font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);}
+  .sect-num{font-family:var(--font-mono); font-size:0.78rem; color:var(--muted); letter-spacing:0.06em;}
 
-    <main class="mt-20"> <!-- Adjust margin-top to clear fixed header -->
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
 
-        <!-- Hero Section -->
-        <section id="home" class="hero-background relative h-screen flex items-center justify-center text-center text-white p-4">
-            <div class="absolute inset-0 bg-black opacity-60"></div>
-            <div class="relative z-10 fade-in max-w-4xl mx-auto">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
-                    UNIVERSE INFRATECH CONSULTING PVT LTD
-                    <span class="block text-indigo-300 mt-2">Building Tomorrow's Skylines, Today</span>
-                </h1>
-                <p class="text-lg sm:text-xl mb-8 drop-shadow-md">
-                    Crafting exceptional properties that redefine luxury, comfort, and sustainable living.
-                </p>
-                <a href="#projects" class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105">
-                    Explore Our Projects
-                </a>
-            </div>
-        </section>
+  header.nav{ position:sticky; top:0; z-index:50; background:rgba(23,21,18,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--border-soft); }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:1.2rem; font-weight:600;}
+  .logo .mark{width:14px; height:14px; border:1.5px solid var(--accent); transform:rotate(45deg);}
+  .nav-links{display:flex; gap:32px; font-size:0.92rem; color:var(--text-dim);}
+  .nav-links a{text-decoration:none; transition:color .15s;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-cta{display:flex; align-items:center; gap:16px;}
+  .btn{ font-family:var(--font-mono); font-weight:500; font-size:0.82rem; letter-spacing:0.03em; padding:12px 22px; border:1px solid transparent; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:all .15s; white-space:nowrap; }
+  .btn-primary{background:var(--accent); color:var(--accent-ink); font-weight:600;}
+  .btn-primary:hover{background:var(--accent-strong);}
+  .btn-ghost{border-color:var(--border); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent-strong);}
+  .menu-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;}
+  .menu-toggle span{width:22px; height:2px; background:var(--text);}
+  @media (max-width:900px){ .nav-links{display:none;} .nav-cta .btn-ghost{display:none;} .menu-toggle{display:flex;} }
 
-        <!-- About Us Section -->
-        <section id="about" class="py-16 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">About <span class="text-indigo-600">UIC Real Estate</span></h2>
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="lg:w-1/2">
-                        <!-- Updated company overview image path -->
-                        <img src="images/logo.png" alt="UIC Company Overview" class="rounded-2xl shadow-xl w-full h-auto object-cover">
-                    </div>
-                    <div class="lg:w-1/2 text-lg text-gray-700 leading-relaxed">
-                        <p class="mb-6">
-                            At UIC Real Estate Company, we are driven by a passion for creating spaces that inspire. With years of unparalleled expertise and a commitment to innovation, we transform visions into reality, delivering properties that stand as benchmarks of quality, design, and functionality.
-                        </p>
-                        <p class="mb-6">
-                            Our philosophy centers on meticulous planning, sustainable development, and a customer-centric approach. We believe in building not just structures, but communities, fostering environments where lives flourish and businesses thrive. From luxurious residential enclaves to state-of-the-art commercial complexes, every UIC project is a testament to our unwavering dedication to excellence.
-                        </p>
-                        <p>
-                            Join us on a journey to discover properties crafted with precision, passion, and a profound understanding of modern living.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  /* HERO with blueprint frame */
+  .hero{padding:70px 0 0;}
+  .hero-inner{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; padding-bottom:64px;}
+  @media (max-width:960px){ .hero-inner{grid-template-columns:1fr; gap:40px;} }
+  .hero h1{font-size:clamp(2.5rem,6vw,4.3rem); line-height:1.05; margin:20px 0 22px; font-weight:600;}
+  .hero h1 em{font-style:normal; color:var(--accent);}
+  .hero-sub{font-size:1.15rem; color:var(--text-dim); margin-bottom:10px; font-family:var(--font-display); font-style:italic;}
+  .hero-body{font-size:1.02rem; color:var(--muted); max-width:48ch; margin-bottom:34px;}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-lg{padding:15px 26px; font-size:0.86rem;}
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-16 bg-gray-100">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our <span class="text-indigo-600">Featured Projects</span></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!-- Project Card 1 -->
-                    <div class="project-card relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 ease-in-out transform hover:scale-105">
-                        <!-- Updated project image path -->
-                        <img src="images/proj1.png" alt="Luxury Residences Project" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2"> GYGY FIVEO</h3>
-                            <p class="text-gray-600 mb-4">Located in the heart of the city, offering unparalleled luxury and convenience at sector 50.</p>
-                            <a href="#" class="inline-block text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-300">View Details &rarr;</a>
-                        </div>
-                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-indigo-800 to-transparent opacity-0 flex items-end p-6 transition-opacity duration-300 rounded-2xl">
-                            <h3 class="text-2xl font-bold text-white"> GYGY FIVEO</h3>
-                        </div>
-                    </div>
+  .blueprint{ position:relative; border:1px solid var(--border); padding:22px; background:var(--surface); }
+  .blueprint::before, .blueprint::after, .bp-tl, .bp-tr{ content:''; position:absolute; width:14px; height:14px; }
+  .bp-corner{position:absolute; width:14px; height:14px; border:1.5px solid var(--accent);}
+  .bp-tl2{top:-1px; left:-1px; border-right:none; border-bottom:none;}
+  .bp-tr2{top:-1px; right:-1px; border-left:none; border-bottom:none;}
+  .bp-bl2{bottom:-1px; left:-1px; border-right:none; border-top:none;}
+  .bp-br2{bottom:-1px; right:-1px; border-left:none; border-top:none;}
+  .bp-label{display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px; padding-bottom:12px; border-bottom:1px dashed var(--border);}
+  .status-dot{width:7px; height:7px; border-radius:50%; background:var(--ok); display:inline-block; margin-right:6px; box-shadow:0 0 6px var(--ok);}
+  .machine-svg{width:100%; height:auto; display:block;}
+  .pulse-dot{animation:pulseDot 2.4s ease-in-out infinite;}
+  .pulse-ring{animation:pulseRing 2.4s ease-out infinite;}
+  @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+  @keyframes pulseRing{ 0%{r:5; opacity:0.8;} 100%{r:16; opacity:0;} }
+  .bp-legend{display:flex; gap:22px; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px dashed var(--border); font-family:var(--font-mono); font-size:0.72rem; color:var(--muted);}
+  .bp-legend b{color:var(--accent); margin-right:5px;}
 
-                    <!-- Project Card 2 -->
-                    <div class="project-card relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 ease-in-out transform hover:scale-105">
-                        <!-- Updated project image path -->
-                        <img src="images/proj2.png" alt="Modern Commercial Hub Project" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">ELDECO BLISS</h3>
-                            <p class="text-gray-600 mb-4">A futuristic residential hub designed for innovation and productivity at 22d Yamuna expressway.</p>
-                            <a href="#" class="inline-block text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-300">View Details &rarr;</a>
-                        </div>
-                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-red-800 to-transparent opacity-0 flex items-end p-6 transition-opacity duration-300 rounded-2xl">
-                            <h3 class="text-2xl font-bold text-white">ELDECO BLISS</h3>
-                        </div>
-                    </div>
+  /* STORY as ledger */
+  .story{padding:56px 0; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft); background:var(--surface);}
+  .story-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--border-soft);}
+  @media (max-width:800px){ .story-grid{grid-template-columns:1fr;} }
+  .story-col{padding:32px 34px;}
+  .story-col.old{border-right:1px solid var(--border-soft);}
+  @media (max-width:800px){ .story-col.old{border-right:none; border-bottom:1px solid var(--border-soft);} }
+  .story-tag{font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px; display:block;}
+  .story-old .story-tag{color:var(--muted);}
+  .story-new .story-tag{color:var(--accent);}
+  .flow-step{font-family:var(--font-body); font-size:0.98rem; padding:8px 0; display:flex; gap:10px;}
+  .flow-step .n{font-family:var(--font-mono); font-size:0.75rem; color:var(--border); min-width:16px;}
+  .story-old .flow-step{color:var(--muted); text-decoration:line-through; text-decoration-color:var(--border);}
+  .story-new .flow-step{color:var(--text-dim);}
+  .story-new .flow-step:last-child{color:var(--accent); font-weight:600;}
 
-                    <!-- Project Card 3 -->
-                    <div class="project-card relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 ease-in-out transform hover:scale-105">
-                        <!-- Updated project image path -->
-                        <img src="images/proj3.png" alt="Eco Friendly Living Project" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Green Oasis Residences</h3>
-                            <p class="text-gray-600 mb-4">Sustainable living amidst lush landscapes, combining comfort with nature.</p>
-                            <a href="#" class="inline-block text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-300">View Details &rarr;</a>
-                        </div>
-                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-emerald-800 to-transparent opacity-0 flex items-end p-6 transition-opacity duration-300 rounded-2xl">
-                            <h3 class="text-2xl font-bold text-white">Green Oasis Residences</h3>
-                        </div>
-                    </div>
+  section{padding:100px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head .sect-num{display:block; margin-bottom:12px;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem); margin-top:6px;}
+  .rule{width:64px; height:2px; background:var(--accent); margin-top:20px;}
+  @media (max-width:640px){ section{padding:64px 0;} }
 
-                    <!-- Project Card 4 (More projects to make it elaborate) -->
-                    <div class="project-card relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 ease-in-out transform hover:scale-105">
-                        <!-- Updated project image path -->
-                        <img src="images/proj4.png" alt="Waterfront Properties Project" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Azure Waterfront</h3>
-                            <p class="text-gray-600 mb-4">Exclusive waterfront properties offering stunning views and serene living.</p>
-                            <a href="#" class="inline-block text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-300">View Details &rarr;</a>
-                        </div>
-                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-purple-800 to-transparent opacity-0 flex items-end p-6 transition-opacity duration-300 rounded-2xl">
-                            <h3 class="text-2xl font-bold text-white">Azure Waterfront</h3>
-                        </div>
-                    </div>
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--border-soft);}
+  @media (max-width:800px){ .steps{grid-template-columns:1fr;} }
+  .step{padding:36px 30px 36px 0; border-right:1px solid var(--border-soft);}
+  .step:last-child{border-right:none;}
+  @media (max-width:800px){ .step{border-right:none; border-bottom:1px solid var(--border-soft); padding:30px 0;} }
+  .step-num{font-family:var(--font-mono); color:var(--accent); font-size:0.85rem; margin-bottom:20px;}
+  .step h3{font-size:1.35rem; margin-bottom:12px; font-weight:600;}
+  .step p{color:var(--muted); font-size:0.96rem;}
 
-                    <!-- Project Card 5 -->
-                    <div class="project-card relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 ease-in-out transform hover:scale-105">
-                        <!-- Updated project image path -->
-                        <img src="images/proj5.png" alt="Retail Complex Project" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Metropolis Plaza</h3>
-                            <p class="text-gray-600 mb-4">A vibrant retail and entertainment complex, a new city landmark.</p>
-                            <a href="#" class="inline-block text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-300">View Details &rarr;</a>
-                        </div>
-                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-pink-800 to-transparent opacity-0 flex items-end p-6 transition-opacity duration-300 rounded-2xl">
-                            <h3 class="text-2xl font-bold text-white">Metropolis Plaza</h3>
-                        </div>
-                    </div>
+  .system-diagram{border:1px solid var(--border); background:var(--surface); padding:52px 32px; display:flex; flex-direction:column; align-items:center; gap:0;}
+  .sys-node{display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;}
+  .sys-icon{width:64px; height:64px; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; transform:rotate(45deg);}
+  .sys-icon svg{width:28px; height:28px; transform:rotate(-45deg);}
+  .sys-title{font-family:var(--font-display); font-weight:600; font-size:1.1rem; margin-top:8px;}
+  .sys-desc{font-family:var(--font-mono); font-size:0.78rem; color:var(--muted);}
+  .sys-connector{width:1px; height:44px; background:repeating-linear-gradient(var(--border) 0 4px, transparent 4px 8px);}
+  .sensor-row{display:flex; gap:26px; margin:8px 0;}
+  .sensor-chip{width:38px; height:38px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; transform:rotate(45deg);}
+  .sensor-chip svg{width:16px; height:16px; transform:rotate(-45deg);}
 
-                    <!-- Project Card 6 -->
-                    <div class="project-card relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 ease-in-out transform hover:scale-105">
-                        <!-- Updated project image path -->
-                        <img src="images/proj6.png" alt="Integrated Township Project" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Harmony Township</h3>
-                            <p class="text-gray-600 mb-4">An integrated township offering homes, offices, and leisure facilities.</p>
-                            <a href="#" class="inline-block text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-300">View Details &rarr;</a>
-                        </div>
-                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-amber-800 to-transparent opacity-0 flex items-end p-6 transition-opacity duration-300 rounded-2xl">
-                            <h3 class="text-2xl font-bold text-white">Harmony Township</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-12">
-                    <a href="#" class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105">
-                        View All Projects
-                    </a>
-                </div>
-            </div>
-        </section>
+  .brain-section{display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center;}
+  @media (max-width:900px){ .brain-section{grid-template-columns:1fr;} }
+  .brain-visual{border:1px solid var(--border); background:var(--surface); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;}
+  .brain-visual svg{width:58%; height:58%;}
+  .brain-copy p{color:var(--text-dim); font-size:1.08rem; margin-bottom:18px; max-width:52ch; font-family:var(--font-display); font-weight:500;}
+  .brain-copy p:last-child{color:var(--muted); font-size:1rem; font-family:var(--font-body); font-weight:400;}
 
-        <!-- Meet Our Team Section -->
-        <section id="team" class="py-16 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Meet Our <span class="text-indigo-600">Visionaries</span></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-                    <!-- Harsh - MD & CEO -->
-                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg text-center flex flex-col items-center border border-indigo-100 transition-transform duration-300 hover:scale-105">
-                        <!-- Updated team image path -->
-                        <img src="images/harsh.png" alt="Harsh - MD & CEO" class="w-48 h-48 rounded-full object-cover mb-6 shadow-md border-4 border-indigo-200">
-                        <h3 class="text-3xl font-semibold text-gray-900 mb-2">Harsh</h3>
-                        <p class="text-indigo-600 text-xl font-medium mb-4">MD & CEO</p>
-                        <p class="text-gray-700 leading-relaxed max-w-md">
-                            As the Managing Director & CEO, Harsh leads UIC Real Estate with a strategic vision and an unwavering commitment to pioneering sustainable and innovative developments. His extensive experience in the real estate sector and passion for design excellence drive the company's success.
-                        </p>
-                    </div>
+  .dash{border:1px solid var(--border); background:var(--surface); overflow:hidden;}
+  .dash-bar{display:flex; align-items:center; gap:8px; padding:14px 18px; border-bottom:1px solid var(--border-soft); background:var(--surface-2);}
+  .dash-dot{width:9px; height:9px; border:1px solid var(--border);}
+  .dash-title{font-family:var(--font-mono); font-size:0.72rem; color:var(--muted); margin-left:8px; letter-spacing:0.06em; text-transform:uppercase;}
+  .dash-body{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border-soft);}
+  @media (max-width:700px){ .dash-body{grid-template-columns:1fr;} }
+  .machine-card{background:var(--surface); padding:26px;}
+  .mc-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;}
+  .mc-name{font-family:var(--font-mono); font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em;}
+  .mc-status{font-family:var(--font-mono); font-size:0.76rem; padding:5px 10px; text-transform:uppercase; letter-spacing:0.06em; display:inline-flex; align-items:center; gap:6px;}
+  .mc-status.ok{color:var(--ok); border:1px solid var(--ok);}
+  .mc-status.warn{color:var(--warn); border:1px solid var(--warn);}
+  .mc-label{font-size:1.5rem; font-family:var(--font-display); font-weight:600; margin-bottom:10px;}
+  .mc-note{font-size:0.9rem; color:var(--muted);}
+  .mc-note strong{color:var(--text-dim); display:block; margin-bottom:4px; font-weight:600; font-family:var(--font-body);}
+  .waveform{display:flex; align-items:flex-end; gap:3px; height:40px; margin:16px 0;}
+  .waveform span{flex:1; background:var(--border);}
+  .machine-card.ok .waveform span{background:var(--ok); opacity:0.55;}
+  .machine-card.warn .waveform span{background:var(--warn); opacity:0.65;}
 
-                    <!-- Mayank Kaushik - Associate Director -->
-                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg text-center flex flex-col items-center border border-indigo-100 transition-transform duration-300 hover:scale-105">
-                        <!-- Updated team image path -->
-                        <img src="images/mayank.png" alt="Mayank Kaushik - Associate Director" class="w-48 h-48 rounded-full object-cover mb-6 shadow-md border-4 border-indigo-200">
-                        <h3 class="text-3xl font-semibold text-gray-900 mb-2">Mayank Kaushik</h3>
-                        <p class="text-indigo-600 text-xl font-medium mb-4">Associate Director</p>
-                        <p class="text-gray-700 leading-relaxed max-w-md">
-                            Mayank Kaushik, the Associate Director, brings a wealth of expertise in project management and market analysis. His keen insights and dedication to operational efficiency are instrumental in ensuring the timely and successful execution of all UIC Real Estate ventures.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  .benefits{display:grid; grid-template-columns:repeat(3,1fr); gap:44px;}
+  @media (max-width:800px){ .benefits{grid-template-columns:1fr; gap:36px;} }
+  .benefit-num{font-family:var(--font-display); font-style:italic; color:var(--accent); font-size:1.6rem; margin-bottom:14px; display:block;}
+  .benefit h3{font-size:1.3rem; margin-bottom:10px; font-weight:600;}
+  .benefit p{color:var(--muted); font-size:0.96rem;}
 
-        <!-- Call to Action Section -->
-        <section class="py-16 bg-indigo-700 text-white text-center">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-                <h2 class="text-4xl font-bold mb-6">Ready to Find Your Dream Property?</h2>
-                <p class="text-xl mb-8 opacity-90">
-                    Connect with our experts today to explore exclusive opportunities and personalized solutions.
-                </p>
-                <a href="#contact" class="bg-white text-indigo-700 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 ease-in-out transform hover:scale-105">
-                    Get in Touch
-                </a>
-            </div>
-        </section>
+  .final-cta{background:var(--surface); border-top:1px solid var(--border-soft); text-align:center; padding:110px 0;}
+  .final-cta h2{font-size:clamp(1.9rem,4vw,3rem); max-width:18ch; margin:0 auto 20px; font-weight:600;}
+  .final-cta p{color:var(--muted); max-width:50ch; margin:0 auto 36px; font-size:1.05rem;}
+  .cta-contact{font-family:var(--font-mono); font-size:0.85rem; color:var(--muted); margin:22px auto 0 !important; max-width:none;}
+  .cta-contact a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--border);}
+  .cta-contact a:hover{border-bottom-color:var(--accent);}
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Contact <span class="text-indigo-600">Us</span></h2>
-                <div class="flex flex-col lg:flex-row gap-12 bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                    <div class="lg:w-1/2">
-                        <h3 class="text-3xl font-semibold text-gray-900 mb-6">Send us a Message</h3>
-                        <form id="contactForm" class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Name</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" placeholder="Your Full Name" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" placeholder="your@example.com" required>
-                            </div>
-                            <div>
-                                <label for="phone" class="block text-gray-700 text-sm font-medium mb-2">Phone (Optional)</label>
-                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" placeholder="+1 234 567 8900">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-gray-700 text-sm font-medium mb-2">Message</label>
-                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" placeholder="Tell us about your inquiry..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 w-full lg:w-auto">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                    <div class="lg:w-1/2 bg-indigo-50 p-8 rounded-2xl flex flex-col justify-center items-start border border-indigo-100">
-                        <h3 class="text-3xl font-semibold text-gray-900 mb-6">Our Office</h3>
-                        <p class="text-gray-700 text-lg mb-4">
-                            <strong>UIC Real Estate Company</strong><br>
-                            B-107, Logix Technova<br>
-                            sector 132<br>
-                            Noida 201301
-                        </p>
-                        <p class="text-gray-700 text-lg mb-4">
-                            <strong>Phone:</strong> +91 9354347519<br>
-                            <strong>Email:</strong> info@universeinfratech.com
-                        </p>
-                        <div class="w-full h-64 rounded-lg overflow-hidden shadow-md">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.292025983803!2d144.9630573153162!3d-37.81410787975191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b58d0c2e39%3A0x504567846294d10!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1678912345678!5m2!1sen!2sau"
-                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Our office location on Google Maps">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  footer{padding:44px 0; border-top:1px solid var(--border-soft);}
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;}
+  .footer-inner .logo{font-size:1.05rem;}
+  .foot-right{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+  .foot-note{font-family:var(--font-mono); font-size:0.78rem; color:var(--muted);}
+  .foot-email{font-family:var(--font-mono); font-size:0.78rem; color:var(--text-dim); text-decoration:none; border-bottom:1px solid var(--border); transition:color .15s, border-color .15s;}
+  .foot-email:hover{color:var(--accent); border-bottom-color:var(--accent);}
 
-    </main>
+  .modal-backdrop{position:fixed; inset:0; background:rgba(10,8,6,0.8); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; padding:20px; z-index:100; opacity:0; pointer-events:none; transition:opacity .2s;}
+  .modal-backdrop.open{opacity:1; pointer-events:auto;}
+  .modal{background:var(--bg); border:1px solid var(--border); max-width:460px; width:100%; padding:36px; position:relative; max-height:90vh; overflow-y:auto;}
+  .modal-close{position:absolute; top:16px; right:16px; background:none; border:none; color:var(--muted); font-size:1.3rem; cursor:pointer; line-height:1;}
+  .modal h3{font-size:1.5rem; margin-bottom:8px; font-weight:600;}
+  .modal p.sub{color:var(--muted); font-size:0.92rem; margin-bottom:26px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block; font-family:var(--font-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:8px;}
+  .field input{ width:100%; background:var(--surface); border:1px solid var(--border); color:var(--text); padding:12px 14px; font-family:var(--font-body); font-size:0.95rem; outline:none; transition:border-color .15s; }
+  .field input:focus{border-color:var(--accent);}
+  .modal .btn{width:100%; justify-content:center; margin-top:6px;}
+  .thanks{display:none; text-align:center; padding:20px 0;}
+  .thanks.show{display:block;}
+  .thanks .status-dot{margin:0 auto 16px;}
+  .form-body.hide{display:none;}
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 rounded-t-lg">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                <a href="#home" class="flex items-center space-x-2 mb-4">
-                    <!-- Updated logo image path in footer -->
-                    <img src="images/logo.png" alt="UIC Logo" class="rounded-full w-10 h-10">
-                    <span class="text-2xl font-bold text-white">UIC <span class="text-indigo-400">Real Estate</span></span>
-                </a>
-                <p class="text-gray-400">Crafting exceptional properties, building lasting relationships.</p>
-            </div>
-            <div class="text-center md:text-left">
-                <h4 class="text-xl font-semibold text-white mb-4">Quick Links</h4>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="#home" class="hover:text-indigo-400 transition-colors duration-300">Home</a></li>
-                    <li><a href="#projects" class="hover:text-indigo-400 transition-colors duration-300">Projects</a></li>
-                    <li><a href="#about" class="hover:text-indigo-400 transition-colors duration-300">About Us</a></li>
-                    <li><a href="#team" class="hover:text-indigo-400 transition-colors duration-300">Team</a></li>
-                    <li><a href="#contact" class="hover:text-indigo-400 transition-colors duration-300">Contact</a></li>
-                </ul>
-            </div>
-            <div class="text-center md:text-left">
-                <h4 class="text-xl font-semibold text-white mb-4">Connect With Us</h4>
-                <p class="text-gray-400 mb-2">Email: info@universeinfratech.com</p>
-                <p class="text-gray-400 mb-4">Phone: +91 9354347519</p>
-                <div class="flex justify-center md:justify-start space-x-4">
-                    <!-- Social Media Icons (placeholders) -->
-                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
-                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 0h-15C2.015 0 0 2.015 0 4.5v15C0 21.985 2.015 24 4.5 24h15C21.985 24 24 21.985 24 19.5v-15C24 2.015 21.985 0 19.5 0zM7.228 20.352H3.659V9.529h3.569V20.352zM5.448 8.058c-1.126 0-2.039-.913-2.039-2.039 0-1.126.913-2.039 2.039-2.039 1.126 0 2.039.913 2.039 2.039 0 1.126-.913 2.039-2.039 2.039zM20.341 20.352h-3.568v-5.698c0-1.356-.025-3.102-1.89-3.102-1.896 0-2.184-1.478-2.184-3.008V9.529h-3.568v10.823h3.568v-6.63c0-.18.004-.36.012-.538.026-.599.117-1.46.772-2.091.666-.63 1.547-.864 2.378-.864 2.544 0 2.766 1.706 2.766 3.73V20.352z"/></svg></a>
-                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.863 8.163 6.848 9.48.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.7C6.737 19.82 6.139 18.66 6.139 18.66c-.464-1.173-1.127-1.488-1.127-1.488-.923-.63.07-.616.07-.616 1.017.072 1.551 1.042 1.551 1.042.905 1.548 2.373 1.099 2.946.84.092-.653.355-1.099.646-1.354-2.24-.254-4.595-1.12-4.595-4.992 0-1.104.39-1.996 1.029-2.693-.103-.255-.445-1.272.098-2.65 0 0 .84-.27 2.75 1.027A9.558 9.558 0 0112 6.844c.85.004 1.7.113 2.502.33 1.908-1.297 2.747-1.027 2.747-1.027.544 1.378.202 2.395.099 2.65.64.697 1.029 1.59 1.029 2.693 0 3.88-2.358 4.734-4.604 4.985.364.31.689.92.689 1.865 0 1.353-.012 2.443-.012 2.775 0 .267.18.577.688.484C19.137 20.163 22 16.418 22 12A10 10 0 0012 2z" clip-rule="evenodd" /></svg></a>
-                </div>
-            </div>
-        </div>
-        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-            &copy; 2025 UIC Real Estate Company. All rights reserved.
-        </div>
-    </footer>
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+</style>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[9999] hidden">
-        <div class="bg-white p-8 rounded-lg shadow-xl max-w-sm w-full text-center relative">
-            <button id="closeModal" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <div class="mb-6">
-                <svg class="w-16 h-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">Message Sent!</h3>
-            <p class="text-gray-700 mb-6">Thank you for reaching out. We will get back to you shortly.</p>
-            <button id="modalOkButton" class="btn-primary text-white font-semibold py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300">
-                OK
-            </button>
-        </div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo"><span class="mark"></span>RPLTechno</a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#system">System</a>
+      <a href="#software">Software</a>
+      <a href="#benefits">Benefits</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#how" class="btn btn-ghost">See how it works</a>
+      <button class="btn btn-primary" onclick="openModal()">Try it →</button>
     </div>
+  </div>
+</header>
 
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Predictive maintenance · Cable &amp; tube manufacturing</span>
+        <h1>Predict failures.<br>Prevent <em>downtime.</em></h1>
+        <p class="hero-sub">Predictive maintenance for industrial equipment.</p>
+        <p class="hero-body">Know when your machine starts showing signs of a problem — before it becomes unexpected downtime.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary btn-lg" onclick="openModal()">Try it →</button>
+          <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
+        </div>
+      </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+      <div class="blueprint">
+        <span class="bp-corner bp-tl2"></span><span class="bp-corner bp-tr2"></span><span class="bp-corner bp-bl2"></span><span class="bp-corner bp-br2"></span>
+        <div class="bp-label"><span><span class="status-dot"></span>Live monitoring</span><span>Fig. 01 — Extruder Line 3</span></div>
+        <svg class="machine-svg" viewBox="0 0 460 220" fill="none">
+          <line x1="20" y1="180" x2="440" y2="180" stroke="#3A332B" stroke-width="1"/>
+          <circle cx="55" cy="150" r="26" stroke="#9C8F79" stroke-width="1.5"/>
+          <circle cx="55" cy="150" r="10" stroke="#9C8F79" stroke-width="1.5"/>
+          <rect x="110" y="128" width="130" height="42" stroke="#CBBFAE" stroke-width="1.5"/>
+          <rect x="110" y="118" width="34" height="10" stroke="#CBBFAE" stroke-width="1.5"/>
+          <rect x="255" y="150" width="90" height="20" stroke="#9C8F79" stroke-width="1.5"/>
+          <path d="M255 160 q11 -8 22 0 t22 0 t22 0 t22 0" stroke="#9C8F79" stroke-width="1"/>
+          <circle cx="380" cy="150" r="18" stroke="#9C8F79" stroke-width="1.5"/>
+          <circle cx="420" cy="150" r="26" stroke="#9C8F79" stroke-width="1.5"/>
+          <circle cx="420" cy="150" r="10" stroke="#9C8F79" stroke-width="1.5"/>
 
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
+          <g><circle cx="130" cy="118" r="4" fill="#C4703B" class="pulse-dot"/><circle cx="130" cy="118" r="4" fill="none" stroke="#C4703B" stroke-width="1" class="pulse-ring"/><circle cx="130" cy="102" r="8" fill="none" stroke="#C4703B" stroke-width="1"/><text x="130" y="105" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#C4703B">1</text></g>
+          <g><circle cx="300" cy="150" r="4" fill="#C4703B" class="pulse-dot" style="animation-delay:.5s"/><circle cx="300" cy="150" r="4" fill="none" stroke="#C4703B" stroke-width="1" class="pulse-ring" style="animation-delay:.5s"/><circle cx="300" cy="134" r="8" fill="none" stroke="#C4703B" stroke-width="1"/><text x="300" y="137" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#C4703B">2</text></g>
+          <g><circle cx="380" cy="132" r="4" fill="#C4703B" class="pulse-dot" style="animation-delay:1s"/><circle cx="380" cy="132" r="4" fill="none" stroke="#C4703B" stroke-width="1" class="pulse-ring" style="animation-delay:1s"/><circle cx="380" cy="116" r="8" fill="none" stroke="#C4703B" stroke-width="1"/><text x="380" y="119" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#C4703B">3</text></g>
 
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    // Close mobile menu after clicking a link
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
+          <rect x="195" y="40" width="52" height="34" stroke="#C4703B" stroke-width="1.5"/>
+          <text x="221" y="61" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#C4703B">BRAIN</text>
+          <line x1="221" y1="74" x2="221" y2="90" stroke="#3A332B" stroke-width="1"/>
+        </svg>
+        <div class="bp-legend">
+          <span><b>1</b>Extruder barrel</span>
+          <span><b>2</b>Cooling trough</span>
+          <span><b>3</b>Capstan drive</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            // Contact Form Submission (dummy)
-            const contactForm = document.getElementById('contactForm');
-            const successModal = document.getElementById('successModal');
-            const closeModalButton = document.getElementById('closeModal');
-            const modalOkButton = document.getElementById('modalOkButton');
+  <section class="story">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="story-col old story-old">
+          <span class="story-tag">The old way</span>
+          <div class="flow-step"><span class="n">01</span>Machine problem</div>
+          <div class="flow-step"><span class="n">02</span>Unexpected breakdown</div>
+          <div class="flow-step"><span class="n">03</span>Production stops</div>
+          <div class="flow-step"><span class="n">04</span>Maintenance reacts</div>
+        </div>
+        <div class="story-col new story-new">
+          <span class="story-tag">With RPLTechno</span>
+          <div class="flow-step"><span class="n">01</span>Machine problem begins</div>
+          <div class="flow-step"><span class="n">02</span>System notices</div>
+          <div class="flow-step"><span class="n">03</span>Early warning</div>
+          <div class="flow-step"><span class="n">04</span>Maintenance investigates</div>
+          <div class="flow-step"><span class="n">05</span>Downtime avoided</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            if (contactForm && successModal && closeModalButton && modalOkButton) {
-                contactForm.addEventListener('submit', function(event) {
-                    event.preventDefault(); // Prevent default form submission
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sect-num">§ 01 — How it works</span>
+        <h2>Simple to install. Simple to understand.</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step-num">01 — Watch</div>
+          <h3>Sensor Boxes watch</h3>
+          <p>Sensor Boxes continuously watch the important parts of your machine.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02 — Learn</div>
+          <h3>Brain Box learns</h3>
+          <p>The Brain Box learns what normal operation looks like.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03 — Warn</div>
+          <h3>You get warned</h3>
+          <p>When the machine starts behaving differently, you receive an early warning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                    // Simulate form submission success
-                    console.log('Form submitted (simulated)!');
-                    successModal.classList.remove('hidden'); // Show the modal
+  <section id="system">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sect-num">§ 02 — The system</span>
+        <h2>A simple system for complex machines.</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="system-diagram reveal">
+        <div class="sys-node"><span class="eyebrow" style="color:var(--muted)">Your machine</span></div>
+        <div class="sys-connector"></div>
+        <div class="sensor-row">
+          <div class="sensor-chip"><svg viewBox="0 0 24 24" stroke="#C4703B" stroke-width="1.5" fill="none"><rect x="4" y="4" width="16" height="16"/></svg></div>
+          <div class="sensor-chip"><svg viewBox="0 0 24 24" stroke="#C4703B" stroke-width="1.5" fill="none"><rect x="4" y="4" width="16" height="16"/></svg></div>
+          <div class="sensor-chip"><svg viewBox="0 0 24 24" stroke="#C4703B" stroke-width="1.5" fill="none"><rect x="4" y="4" width="16" height="16"/></svg></div>
+        </div>
+        <div class="sys-node"><div class="sys-title">Sensor Boxes</div><div class="sys-desc">Watch the machine</div></div>
+        <div class="sys-connector"></div>
+        <div class="sys-node">
+          <div class="sys-icon"><svg viewBox="0 0 24 24" stroke="#C4703B" stroke-width="1.5" fill="none"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.4" fill="#C4703B"/></svg></div>
+          <div class="sys-title">Brain Box</div><div class="sys-desc">Understands the machine</div>
+        </div>
+        <div class="sys-connector"></div>
+        <div class="sys-node">
+          <div class="sys-icon" style="border-color:var(--warn)"><svg viewBox="0 0 24 24" stroke="#B4432E" stroke-width="1.5" fill="none"><path d="M12 4 L21 19 H3 Z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="16.6" r="0.6" fill="#B4432E"/></svg></div>
+          <div class="sys-title" style="color:var(--warn)">Early Warning</div><div class="sys-desc">Know before failure</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                    // Clear form fields
-                    contactForm.reset();
-                });
+  <section>
+    <div class="wrap brain-section">
+      <div class="brain-visual reveal">
+        <svg viewBox="0 0 200 200" fill="none">
+          <rect x="55" y="55" width="90" height="90" stroke="#C4703B" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="22" stroke="#C4703B" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="4" fill="#C4703B"/>
+          <line x1="55" y1="30" x2="55" y2="55" stroke="#3A332B"/>
+          <line x1="145" y1="30" x2="145" y2="55" stroke="#3A332B"/>
+          <line x1="55" y1="145" x2="55" y2="170" stroke="#3A332B"/>
+          <line x1="145" y1="145" x2="145" y2="170" stroke="#3A332B"/>
+          <circle cx="55" cy="30" r="3" fill="#9C8F79"/>
+          <circle cx="145" cy="30" r="3" fill="#9C8F79"/>
+          <circle cx="55" cy="170" r="3" fill="#9C8F79"/>
+          <circle cx="145" cy="170" r="3" fill="#9C8F79"/>
+        </svg>
+      </div>
+      <div class="brain-copy reveal">
+        <span class="sect-num">§ 03 — The Brain Box</span>
+        <h2 style="margin:14px 0 24px; font-size:clamp(1.9rem,3.6vw,2.6rem);">One box that learns your machine.</h2>
+        <p>Every machine has its own normal behaviour. The Brain Box learns that behaviour by continuously observing the machine.</p>
+        <p>Over time, it can recognize changes that may indicate a developing problem.</p>
+      </div>
+    </div>
+  </section>
 
-                closeModalButton.addEventListener('click', () => {
-                    successModal.classList.add('hidden'); // Hide the modal
-                });
+  <section id="software">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sect-num">§ 04 — The software</span>
+        <h2>A clear picture of machine health.</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="dash reveal">
+        <div class="dash-bar">
+          <span class="dash-dot"></span><span class="dash-dot"></span><span class="dash-dot"></span>
+          <span class="dash-title">RPLTechno — Machine Health</span>
+        </div>
+        <div class="dash-body">
+          <div class="machine-card ok">
+            <div class="mc-head">
+              <span class="mc-name">Wire Drawing Machine 2</span>
+              <span class="mc-status ok"><span class="status-dot" style="background:var(--ok); box-shadow:0 0 6px var(--ok);"></span>Normal</span>
+            </div>
+            <div class="mc-label">Machine Health</div>
+            <div class="waveform">
+              <span style="height:40%"></span><span style="height:55%"></span><span style="height:35%"></span><span style="height:60%"></span><span style="height:42%"></span><span style="height:50%"></span><span style="height:38%"></span><span style="height:58%"></span><span style="height:45%"></span><span style="height:36%"></span>
+            </div>
+            <div class="mc-note">Operating within normal range.</div>
+          </div>
+          <div class="machine-card warn">
+            <div class="mc-head">
+              <span class="mc-name">Armoring Line 1</span>
+              <span class="mc-status warn"><span class="status-dot" style="background:var(--warn); box-shadow:0 0 6px var(--warn);"></span>Attention</span>
+            </div>
+            <div class="mc-label">Machine Health</div>
+            <div class="waveform">
+              <span style="height:35%"></span><span style="height:40%"></span><span style="height:70%"></span><span style="height:50%"></span><span style="height:80%"></span><span style="height:60%"></span><span style="height:85%"></span><span style="height:55%"></span><span style="height:75%"></span><span style="height:65%"></span>
+            </div>
+            <div class="mc-note"><strong>Possible developing issue</strong>Investigate before next production run.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                modalOkButton.addEventListener('click', () => {
-                    successModal.classList.add('hidden'); // Hide the modal
-                });
+  <section id="benefits">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sect-num">§ 05 — What you get</span>
+        <h2>Fewer surprises. More production.</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="benefits reveal">
+        <div class="benefit"><span class="benefit-num">01</span><h3>Avoid surprises</h3><p>Know about developing problems before they become unexpected breakdowns.</p></div>
+        <div class="benefit"><span class="benefit-num">02</span><h3>Plan maintenance</h3><p>Give your maintenance team time to investigate and act.</p></div>
+        <div class="benefit"><span class="benefit-num">03</span><h3>Keep production running</h3><p>Reduce the disruption caused by unexpected equipment failures.</p></div>
+      </div>
+    </div>
+  </section>
 
-                // Close modal if clicked outside
-                successModal.addEventListener('click', (event) => {
-                    if (event.target === successModal) {
-                        successModal.classList.add('hidden');
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+  <section class="final-cta">
+    <div class="wrap">
+      <span class="eyebrow">RPLTechno for cable &amp; tube manufacturing</span>
+      <h2>Your machine gives you warning signs. We help you see them before they become downtime.</h2>
+      <p>Sensor Boxes watch. The Brain Box learns. You get warned before it fails.</p>
+      <button class="btn btn-primary btn-lg" onclick="openModal()">Try it →</button>
+      <p class="cta-contact">Or write to us directly at <a href="mailto:karthiksj008@gmail.com">karthiksj008@gmail.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="#top" class="logo"><span class="mark"></span>RPLTechno</a>
+    <div class="foot-right">
+      <span class="foot-note">Predictive maintenance for cable &amp; tube manufacturing.</span>
+      <a href="mailto:karthiksj008@gmail.com" class="foot-email">karthiksj008@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    <div class="form-body" id="formBody">
+      <h3>Let's see what we can learn from your machine.</h3>
+      <p class="sub">Tell us a little about your operation and we'll follow up to talk through a pilot.</p>
+      <form id="tryForm" onsubmit="return submitForm(event)">
+        <div class="field"><label>Name</label><input type="text" id="f-name" required/></div>
+        <div class="field"><label>Company</label><input type="text" id="f-company" required/></div>
+        <div class="field"><label>Work email</label><input type="email" id="f-email" required/></div>
+        <div class="field"><label>What type of machine would you like to monitor?</label><input type="text" id="f-machine" placeholder="e.g. Extruder, Wire Drawing Machine, Stranding Line" required/></div>
+        <button type="submit" class="btn btn-primary">Let's talk</button>
+      </form>
+    </div>
+    <div class="thanks" id="thanksBody">
+      <span class="status-dot" style="width:10px;height:10px;"></span>
+      <h3>Almost there — send the email.</h3>
+      <p class="sub">Your email app should have opened with a message addressed to <strong style="color:var(--text-dim)">karthiksj008@gmail.com</strong>, pre-filled with what you told us. Just hit send.</p>
+      <p class="sub" style="margin-top:14px;">Nothing open? <a href="#" id="manualMailto" style="color:var(--accent); border-bottom:1px solid var(--border); text-decoration:none;">Click here to email us directly</a>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(){ document.getElementById('modalBackdrop').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeModal(){ document.getElementById('modalBackdrop').classList.remove('open'); document.body.style.overflow=''; document.getElementById('formBody').classList.remove('hide'); document.getElementById('thanksBody').classList.remove('show'); document.getElementById('tryForm').reset(); }
+  function submitForm(e){
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const company = document.getElementById('f-company').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const machine = document.getElementById('f-machine').value.trim();
+
+    const subject = `Pilot inquiry — ${company}`;
+    const body = [
+      `Name: ${name}`,
+      `Company: ${company}`,
+      `Work email: ${email}`,
+      `Machine to monitor: ${machine}`
+    ].join('\n');
+    const mailtoUrl = `mailto:karthiksj008@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    document.getElementById('manualMailto').href = mailtoUrl;
+    window.location.href = mailtoUrl;
+
+    document.getElementById('formBody').classList.add('hide');
+    document.getElementById('thanksBody').classList.add('show');
+    return false;
+  }
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
