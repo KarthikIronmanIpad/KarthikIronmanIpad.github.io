@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RPLTechno — Your Honest View</title>
+<meta name="description" content="A conversation guide on predictive maintenance for packaging film lines. Not a pitch — a request for an honest opinion.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --bg:#171512; --surface:#1E1B16; --surface-2:#24201A; --border:#3A332B; --border-soft:#2A251E;
+    --text:#F0E9DF; --text-dim:#CBBFAE; --muted:#9C8F79;
+    --accent:#C4703B; --accent-strong:#E0935C; --accent-ink:#2A1608;
+    --ok:#7DA382; --warn:#B4432E;
+    --font-display:'Fraunces',Georgia,serif; --font-body:'Public Sans',system-ui,sans-serif; --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition-duration:0.01ms !important;} }
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; text-wrap:balance;}
+  .eyebrow{font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);}
+  .sect-num{font-family:var(--font-mono); font-size:0.78rem; color:var(--muted); letter-spacing:0.06em;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+  @media (max-width:640px){ .wrap{padding:0 16px;} }
+
+  /* NAV */
+  header.nav{ position:sticky; top:0; z-index:50; background:rgba(23,21,18,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--border-soft); }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:1.15rem; font-weight:600; text-decoration:none;}
+  .logo .mark{width:14px; height:14px; border:1.5px solid var(--accent); transform:rotate(45deg);}
+  .nav-links{display:flex; gap:26px; font-size:0.88rem; color:var(--text-dim);}
+  .nav-links a{text-decoration:none; transition:color .15s;}
+  .nav-links a:hover{color:var(--accent);}
+  @media (max-width:900px){ .nav-links{display:none;} }
+  .btn{ font-family:var(--font-mono); font-weight:500; font-size:0.8rem; letter-spacing:0.03em; padding:10px 18px; border:1px solid var(--border); background:none; color:var(--text); cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:all .15s; white-space:nowrap; }
+  .btn:hover{border-color:var(--accent); color:var(--accent-strong);}
+  .btn[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--accent-ink); font-weight:600;}
+
+  section{padding:88px 0; border-top:1px solid var(--border-soft);}
+  @media (max-width:640px){ section{padding:60px 0;} }
+  .section-head{max-width:680px; margin-bottom:44px;}
+  .section-head .sect-num{display:block; margin-bottom:12px;}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);}
+  .section-head p{color:var(--muted); margin-top:14px; font-size:1.02rem; max-width:60ch;}
+  .rule{width:64px; height:2px; background:var(--accent); margin-top:20px;}
+
+  /* HERO */
+  .hero{padding:80px 0 64px; border-top:none;}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.1rem); line-height:1.06; margin:20px 0 24px; max-width:16ch;}
+  .hero h1 em{font-style:normal; color:var(--accent);}
+  .hero-lead{font-family:var(--font-display); font-style:italic; font-size:clamp(1.1rem,2vw,1.3rem); color:var(--text-dim); max-width:52ch; margin-bottom:18px;}
+  .hero-body{color:var(--muted); max-width:58ch; font-size:1.02rem;}
+  .hero-meta{margin-top:34px; font-family:var(--font-mono); font-size:0.78rem; color:var(--muted); display:flex; gap:22px; flex-wrap:wrap;}
+  .hero-meta b{color:var(--text-dim); font-weight:500;}
+
+  .agenda{display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--border-soft); margin-top:56px; background:var(--surface);}
+  @media (max-width:860px){ .agenda{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .agenda{grid-template-columns:1fr;} }
+  .agenda a{padding:20px 20px 22px; text-decoration:none; border-right:1px solid var(--border-soft); transition:background .15s;}
+  .agenda a:last-child{border-right:none;}
+  @media (max-width:860px){ .agenda a{border-bottom:1px solid var(--border-soft);} }
+  .agenda a:hover{background:var(--surface-2);}
+  .agenda .n{font-family:var(--font-mono); font-size:0.72rem; color:var(--accent); display:block; margin-bottom:8px;}
+  .agenda .t{font-family:var(--font-display); font-size:1.05rem; font-weight:600; display:block; line-height:1.3;}
+  .agenda .d{font-family:var(--font-mono); font-size:0.7rem; color:var(--muted); display:block; margin-top:6px;}
+  .agenda a.focus .t{color:var(--accent-strong);}
+
+  /* IDEA */
+  .idea-grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:48px; align-items:start;}
+  @media (max-width:860px){ .idea-grid{grid-template-columns:1fr; gap:36px;} }
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--border-soft);}
+  @media (max-width:640px){ .steps{grid-template-columns:1fr;} }
+  .step{padding:28px 22px 28px 0; border-right:1px solid var(--border-soft);}
+  .step + .step{padding-left:22px;}
+  .step:last-child{border-right:none;}
+  @media (max-width:640px){ .step, .step + .step{border-right:none; border-bottom:1px solid var(--border-soft); padding:22px 0;} }
+  .step-num{font-family:var(--font-mono); color:var(--accent); font-size:0.8rem; margin-bottom:14px;}
+  .step h3{font-size:1.2rem; margin-bottom:8px;}
+  .step p{color:var(--muted); font-size:0.94rem;}
+  .not-box{border:1px solid var(--border); background:var(--surface); padding:26px 26px 22px;}
+  .not-box .eyebrow{color:var(--muted); display:block; margin-bottom:14px;}
+  .not-box li{list-style:none; padding:9px 0; border-bottom:1px dashed var(--border); color:var(--text-dim); font-size:0.96rem; display:flex; gap:12px;}
+  .not-box li:last-child{border-bottom:none;}
+  .not-box li::before{content:'—'; color:var(--accent); font-family:var(--font-mono);}
+
+  /* LINE */
+  .blueprint{position:relative; border:1px solid var(--border); padding:22px; background:var(--surface);}
+  .bp-corner{position:absolute; width:14px; height:14px; border:1.5px solid var(--accent);}
+  .bp-tl{top:-1px; left:-1px; border-right:none; border-bottom:none;}
+  .bp-tr{top:-1px; right:-1px; border-left:none; border-bottom:none;}
+  .bp-bl{bottom:-1px; left:-1px; border-right:none; border-top:none;}
+  .bp-br{bottom:-1px; right:-1px; border-left:none; border-top:none;}
+  .bp-label{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:var(--font-mono); font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px; padding-bottom:12px; border-bottom:1px dashed var(--border);}
+  .line-svg{width:100%; height:auto; display:block;}
+  .stations{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border-soft); border:1px solid var(--border-soft); margin-top:28px;}
+  @media (max-width:900px){ .stations{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .stations{grid-template-columns:1fr;} }
+  .station{background:var(--bg); padding:24px 22px;}
+  .station .num{display:inline-flex; width:24px; height:24px; border:1px solid var(--accent); color:var(--accent); border-radius:50%; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:0.72rem; margin-bottom:12px;}
+  .station h3{font-size:1.12rem; margin-bottom:12px;}
+  .station .lbl{font-family:var(--font-mono); font-size:0.66rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); display:block; margin:12px 0 6px;}
+  .station ul{list-style:none;}
+  .station li{font-size:0.9rem; color:var(--text-dim); padding:3px 0 3px 14px; position:relative;}
+  .station li::before{content:''; position:absolute; left:0; top:12px; width:5px; height:5px; border:1px solid var(--accent); transform:rotate(45deg);}
+  .caveat{margin-top:28px; border-left:2px solid var(--warn); padding:18px 22px; background:var(--surface);}
+  .caveat .eyebrow{color:var(--warn); display:block; margin-bottom:8px;}
+  .caveat p{color:var(--text-dim); max-width:72ch;}
+
+  /* QUESTIONS */
+  .q-groups{display:grid; gap:28px;}
+  .q-group{border:1px solid var(--border-soft); background:var(--surface);}
+  .q-group-head{display:flex; align-items:baseline; gap:16px; padding:20px 26px; border-bottom:1px solid var(--border-soft); background:var(--surface-2);}
+  .q-group-head .letter{font-family:var(--font-display); font-style:italic; color:var(--accent); font-size:1.5rem; line-height:1;}
+  .q-group-head h3{font-size:1.2rem;}
+  .q-group-head .hint{margin-left:auto; font-family:var(--font-mono); font-size:0.7rem; color:var(--muted); text-align:right;}
+  @media (max-width:640px){ .q-group-head{flex-wrap:wrap;} .q-group-head .hint{margin-left:0; text-align:left; width:100%;} }
+  .q{padding:18px 26px; border-bottom:1px dashed var(--border); display:grid; grid-template-columns:36px 1fr; gap:6px 10px;}
+  .q:last-child{border-bottom:none;}
+  @media (max-width:640px){ .q{padding:16px 18px;} }
+  .q .qn{font-family:var(--font-mono); font-size:0.78rem; color:var(--muted); padding-top:3px;}
+  .q .qt{font-size:1.04rem; color:var(--text);}
+  .q .qs{grid-column:2; font-size:0.88rem; color:var(--muted);}
+  .q.key .qt{font-family:var(--font-display); font-weight:600; font-size:1.14rem; color:var(--accent-strong);}
+
+  /* NOTES */
+  .note{grid-column:2; display:none; margin-top:8px;}
+  body.notes-on .note{display:block;}
+  .note textarea{width:100%; min-height:62px; resize:vertical; background:var(--bg); border:1px solid var(--border); color:var(--text); padding:10px 12px; font-family:var(--font-body); font-size:0.92rem; line-height:1.5; outline:none;}
+  .note textarea:focus{border-color:var(--accent);}
+  .note textarea::placeholder{color:var(--muted); opacity:0.7;}
+  .notes-bar{position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:60; display:none; gap:10px; align-items:center; background:var(--surface-2); border:1px solid var(--border); padding:10px 12px 10px 18px; font-family:var(--font-mono); font-size:0.76rem; color:var(--muted); box-shadow:0 10px 30px rgba(0,0,0,0.4); max-width:calc(100% - 32px);}
+  body.notes-on .notes-bar{display:flex;}
+  .notes-bar .btn{padding:8px 14px; font-size:0.74rem;}
+
+  /* CALCULATOR */
+  .calc{display:grid; grid-template-columns:1.1fr 0.9fr; border:1px solid var(--border);}
+  @media (max-width:860px){ .calc{grid-template-columns:1fr;} }
+  .calc-inputs{padding:30px; background:var(--surface); display:grid; grid-template-columns:1fr 1fr; gap:20px 22px; align-content:start;}
+  @media (max-width:520px){ .calc-inputs{grid-template-columns:1fr; padding:22px;} }
+  .field label{display:block; font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:8px;}
+  .field input, .field select{width:100%; background:var(--bg); border:1px solid var(--border); color:var(--text); padding:11px 12px; font-family:var(--font-mono); font-size:0.95rem; outline:none; transition:border-color .15s;}
+  .field input:focus, .field select:focus{border-color:var(--accent);}
+  .field.wide{grid-column:1 / -1;}
+  .field input[type=range]{padding:0; border:none; background:none; accent-color:var(--accent); height:28px;}
+  .range-row{display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.78rem; color:var(--text-dim);}
+  .calc-out{padding:30px; background:var(--bg); border-left:1px solid var(--border); display:flex; flex-direction:column; gap:22px;}
+  @media (max-width:860px){ .calc-out{border-left:none; border-top:1px solid var(--border);} }
+  @media (max-width:520px){ .calc-out{padding:22px;} }
+  .out .lbl{font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); display:block; margin-bottom:6px;}
+  .out .val{font-family:var(--font-display); font-weight:600; font-size:clamp(1.7rem,3.6vw,2.4rem); line-height:1.15; font-variant-numeric:tabular-nums;}
+  .out.hl .val{color:var(--accent-strong);}
+  .out .sub{font-size:0.86rem; color:var(--muted); margin-top:4px;}
+  .calc-note{font-size:0.88rem; color:var(--muted); border-top:1px dashed var(--border); padding-top:16px; margin-top:auto;}
+
+  /* UNSURE + ASK */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border-soft); border:1px solid var(--border-soft);}
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr;} }
+  .cell{background:var(--bg); padding:26px 26px 24px;}
+  .cell .k{font-family:var(--font-mono); font-size:0.72rem; color:var(--accent); display:block; margin-bottom:10px;}
+  .cell h3{font-size:1.14rem; margin-bottom:8px;}
+  .cell p{color:var(--muted); font-size:0.95rem;}
+
+  .asks{counter-reset:ask; display:grid; gap:0; border-top:1px solid var(--border-soft);}
+  .ask{display:grid; grid-template-columns:64px 1fr; gap:16px; padding:22px 0; border-bottom:1px solid var(--border-soft); align-items:baseline;}
+  .ask .n{font-family:var(--font-display); font-style:italic; color:var(--accent); font-size:1.5rem;}
+  .ask h3{font-size:1.15rem; margin-bottom:4px;}
+  .ask p{color:var(--muted); font-size:0.95rem; max-width:62ch;}
+
+  .closing{background:var(--surface); text-align:center; padding:100px 0;}
+  .closing h2{font-size:clamp(1.8rem,4vw,2.8rem); max-width:20ch; margin:18px auto 18px;}
+  .closing p{color:var(--muted); max-width:52ch; margin:0 auto; font-size:1.04rem;}
+  .closing .contact{font-family:var(--font-mono); font-size:0.85rem; margin-top:26px;}
+  .closing .contact a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--border);}
+
+  footer{padding:36px 0; border-top:1px solid var(--border-soft);}
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .foot-note{font-family:var(--font-mono); font-size:0.76rem; color:var(--muted);}
+  .foot-note a{color:var(--text-dim); text-decoration:none; border-bottom:1px solid var(--border);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="logo"><span class="mark"></span>RPLTechno</a>
+    <nav class="nav-links">
+      <a href="#idea">The idea</a>
+      <a href="#line">Your line</a>
+      <a href="#questions">Your view</a>
+      <a href="#numbers">Rough numbers</a>
+      <a href="#next">Next</a>
+    </nav>
+    <button class="btn" id="notesToggle" aria-pressed="false" title="Show a note field under each question">✎ Notes</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">A conversation, not a pitch</span>
+      <h1>I'd value your <em>honest</em> opinion.</h1>
+      <p class="hero-lead">You run several packaging film lines. I'm working on an idea, predictive maintenance for this kind of machinery, and I'd like to hear from someone who runs these lines before I build any further.</p>
+      <p class="hero-body">I'm not here to sell you anything. If the idea doesn't fit how your plants actually work, I'd like to hear that too. It saves me months of building the wrong thing.</p>
+      <div class="hero-meta">
+        <span><b>Karthik</b> · RPLTechno</span>
+        <span>25 Sep 2026</span>
+        <span>~30 minutes</span>
+      </div>
+
+      <nav class="agenda" aria-label="Agenda">
+        <a href="#idea"><span class="n">01</span><span class="t">The idea</span><span class="d">2 min</span></a>
+        <a href="#line"><span class="n">02</span><span class="t">Where I think it fits</span><span class="d">5 min</span></a>
+        <a href="#questions" class="focus"><span class="n">03</span><span class="t">Your view</span><span class="d">most of our time</span></a>
+        <a href="#numbers"><span class="n">04</span><span class="t">Rough numbers</span><span class="d">optional</span></a>
+        <a href="#next"><span class="n">05</span><span class="t">What's next</span><span class="d">2 min</span></a>
+      </nav>
+    </div>
+  </section>
+
+  <section id="idea">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="sect-num">§ 01 — The idea in one minute</span>
+        <h2>Let the machine tell you it's getting sick, before it stops.</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="idea-grid">
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01 — Watch</div>
+            <h3>Small sensors</h3>
+            <p>Clip-on sensors on critical parts: motors, gearboxes, bearings, blowers. They measure vibration, temperature and current.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">02 — Learn</div>
+            <h3>A box that learns "normal"</h3>
+            <p>A small on-site unit learns how each machine behaves when it's healthy, taking speed, job and material into account.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">03 — Warn</div>
+            <h3>Early, plain warnings</h3>
+            <p>When something starts drifting, maintenance gets a simple alert days or weeks ahead, with time to plan instead of react.</p>
+          </div>
+        </div>
+        <div class="not-box">
+          <span class="eyebrow">What it is not</span>
+          <ul>
+            <li>A replacement for your maintenance team's experience</li>
+            <li>A new ERP, MES or plant-wide software project</li>
+            <li>Something that touches machine controls</li>
+            <li>Something I'm asking you to buy today</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="line">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="sect-num">§ 02 — Where I think it could fit</span>
+        <h2>My guesses about a film line. Please correct me.</h2>
+        <p>This is how I picture the path from resin to finished reel, and where I think a mechanical failure would hurt most. I'm sure parts of it are wrong.</p>
+        <div class="rule"></div>
+      </div>
+
+      <div class="blueprint">
+        <span class="bp-corner bp-tl"></span><span class="bp-corner bp-tr"></span><span class="bp-corner bp-bl"></span><span class="bp-corner bp-br"></span>
+        <div class="bp-label"><span>Fig. 01 — Flexible packaging, simplified</span><span>Assumption · not to scale</span></div>
+        <svg class="line-svg" viewBox="0 0 900 230" fill="none" role="img" aria-label="Simplified film line: extrusion, gravure printing, lamination, slitting and rewinding">
+          <line x1="20" y1="200" x2="880" y2="200" stroke="#3A332B"/>
+          <!-- 1 extrusion -->
+          <path d="M40 70 L70 70 L62 92 L48 92 Z" stroke="#9C8F79" stroke-width="1.5"/>
+          <rect x="40" y="92" width="130" height="30" stroke="#CBBFAE" stroke-width="1.5"/>
+          <rect x="170" y="100" width="18" height="14" stroke="#CBBFAE" stroke-width="1.5"/>
+          <circle cx="210" cy="150" r="18" stroke="#9C8F79" stroke-width="1.5"/>
+          <!-- web -->
+          <path d="M188 107 L205 132 M228 150 L262 150 L262 105 L290 105" stroke="#C4703B" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- 2 gravure units -->
+          <g stroke="#CBBFAE" stroke-width="1.5">
+            <rect x="290" y="70" width="44" height="100"/><rect x="340" y="70" width="44" height="100"/><rect x="390" y="70" width="44" height="100"/><rect x="440" y="70" width="44" height="100"/>
+          </g>
+          <g stroke="#9C8F79" stroke-width="1.2">
+            <circle cx="312" cy="150" r="10"/><circle cx="362" cy="150" r="10"/><circle cx="412" cy="150" r="10"/><circle cx="462" cy="150" r="10"/>
+            <rect x="296" y="78" width="32" height="18"/><rect x="346" y="78" width="32" height="18"/><rect x="396" y="78" width="32" height="18"/><rect x="446" y="78" width="32" height="18"/>
+          </g>
+          <path d="M290 105 L484 105" stroke="#C4703B" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- 3 lamination -->
+          <path d="M484 105 L560 105 L560 128" stroke="#C4703B" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle cx="545" cy="60" r="16" stroke="#9C8F79" stroke-width="1.5"/>
+          <path d="M561 60 L575 60 L575 128" stroke="#C4703B" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle cx="558" cy="142" r="14" stroke="#CBBFAE" stroke-width="1.5"/>
+          <circle cx="585" cy="142" r="14" stroke="#CBBFAE" stroke-width="1.5"/>
+          <rect x="610" y="120" width="70" height="44" stroke="#9C8F79" stroke-width="1.5"/>
+          <path d="M599 142 L700 142" stroke="#C4703B" stroke-width="1" stroke-dasharray="3 3"/>
+          <!-- 4 slitting -->
+          <line x1="720" y1="130" x2="720" y2="156" stroke="#CBBFAE" stroke-width="1.5"/>
+          <line x1="732" y1="130" x2="732" y2="156" stroke="#CBBFAE" stroke-width="1.5"/>
+          <line x1="744" y1="130" x2="744" y2="156" stroke="#CBBFAE" stroke-width="1.5"/>
+          <path d="M700 142 L790 142" stroke="#C4703B" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle cx="810" cy="130" r="20" stroke="#9C8F79" stroke-width="1.5"/><circle cx="810" cy="130" r="6" stroke="#9C8F79" stroke-width="1.5"/>
+          <circle cx="850" cy="165" r="20" stroke="#9C8F79" stroke-width="1.5"/><circle cx="850" cy="165" r="6" stroke="#9C8F79" stroke-width="1.5"/>
+          <!-- markers -->
+          <g font-family="IBM Plex Mono" font-size="11" fill="#C4703B" text-anchor="middle">
+            <circle cx="105" cy="40" r="11" stroke="#C4703B"/><text x="105" y="44">1</text>
+            <circle cx="387" cy="40" r="11" stroke="#C4703B"/><text x="387" y="44">2</text>
+            <circle cx="620" cy="40" r="11" stroke="#C4703B"/><text x="620" y="44">3</text>
+            <circle cx="800" cy="40" r="11" stroke="#C4703B"/><text x="800" y="44">4</text>
+          </g>
+          <g font-family="IBM Plex Mono" font-size="10" fill="#9C8F79" text-anchor="middle" letter-spacing="1">
+            <text x="105" y="222">EXTRUSION</text><text x="387" y="222">GRAVURE PRINTING</text><text x="620" y="222">LAMINATION</text><text x="800" y="222">SLIT · REWIND</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="stations">
+        <div class="station">
+          <span class="num">1</span>
+          <h3>Film extrusion</h3>
+          <span class="lbl">What could be watched</span>
+          <ul><li>Main motor and gearbox</li><li>Screw and barrel heater zones</li><li>Chill roll and haul-off bearings</li><li>Winder drives</li></ul>
+        </div>
+        <div class="station">
+          <span class="num">2</span>
+          <h3>Gravure printing</h3>
+          <span class="lbl">What could be watched</span>
+          <ul><li>Cylinder drive motors and bearings</li><li>Dryer blowers and fans</li><li>Unwind and web tension drives</li><li>Impression roller condition</li></ul>
+        </div>
+        <div class="station">
+          <span class="num">3</span>
+          <h3>Lamination</h3>
+          <span class="lbl">What could be watched</span>
+          <ul><li>Nip roll bearings</li><li>Adhesive pump and mixing unit</li><li>Dryer and curing fans</li></ul>
+        </div>
+        <div class="station">
+          <span class="num">4</span>
+          <h3>Slitting and rewinding</h3>
+          <span class="lbl">What could be watched</span>
+          <ul><li>Spindle and shaft bearings</li><li>Rewind drive motors</li><li>Knife assembly wear</li></ul>
+        </div>
+      </div>
+
+      <div class="caveat">
+        <span class="eyebrow">My own doubt</span>
+        <p>I suspect many of your stops are process issues like web breaks, register drift, ink problems and cylinder changeovers, not parts failing. If most lost hours come from process rather than mechanical failure, this idea covers only a small part of the problem. That's one of the main things I'd like your view on.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="sect-num">§ 03 — Your view</span>
+        <h2>The questions I can't answer without you.</h2>
+        <p>We don't need to go through all of them. The highlighted ones matter most to me.</p>
+        <div class="rule"></div>
+      </div>
+
+      <div class="q-groups">
+        <div class="q-group">
+          <div class="q-group-head"><span class="letter">A</span><h3>The reality of downtime</h3><span class="hint">Is the problem real?</span></div>
+          <div class="q key" data-q="1"><span class="qn">01</span><span class="qt">What stops your lines most often, and which stops hurt the most?</span><span class="qs">Mechanical failures, process issues, changeovers, material, power?</span></div>
+          <div class="q" data-q="2"><span class="qn">02</span><span class="qt">Roughly what does one hour of an unplanned stop cost you?</span><span class="qs">Lost output, film wasted at restart, overtime, late deliveries.</span></div>
+          <div class="q" data-q="3"><span class="qn">03</span><span class="qt">Which breakdown in the last year do you remember as the most painful?</span><span class="qs">What failed, how long it took to recover, and whether anyone saw it coming.</span></div>
+        </div>
+
+        <div class="q-group">
+          <div class="q-group-head"><span class="letter">B</span><h3>How maintenance works today</h3><span class="hint">What already exists?</span></div>
+          <div class="q" data-q="4"><span class="qn">04</span><span class="qt">Is maintenance mostly scheduled, run-until-it-breaks, or based on regular checks?</span></div>
+          <div class="q" data-q="5"><span class="qn">05</span><span class="qt">Do your machine makers already offer monitoring or remote service? Do you use it?</span></div>
+          <div class="q" data-q="6"><span class="qn">06</span><span class="qt">What data do your lines already produce, such as PLC, SCADA or energy meters, and does anyone look at it?</span></div>
+        </div>
+
+        <div class="q-group">
+          <div class="q-group-head"><span class="letter">C</span><h3>Would it be worth paying for?</h3><span class="hint">The hard question</span></div>
+          <div class="q key" data-q="7"><span class="qn">07</span><span class="qt">Honestly, is this a real problem for a company like yours, or just nice to have?</span></div>
+          <div class="q" data-q="8"><span class="qn">08</span><span class="qt">If it worked, how would you prefer to pay?</span><span class="qs">One-time hardware, a monthly fee per machine, or only after it proves itself on a pilot.</span></div>
+          <div class="q key" data-q="9"><span class="qn">09</span><span class="qt">What would you need to see before you trusted it?</span><span class="qs">A pilot on one line, a failure it caught, a reference customer?</span></div>
+          <div class="q" data-q="10"><span class="qn">10</span><span class="qt">Who would decide on something like this, and who would use it every day?</span></div>
+        </div>
+
+        <div class="q-group">
+          <div class="q-group-head"><span class="letter">D</span><h3>What would make it fail</h3><span class="hint">Tell me where it breaks</span></div>
+          <div class="q" data-q="11"><span class="qn">11</span><span class="qt">What would make your maintenance team ignore the alerts?</span></div>
+          <div class="q" data-q="12"><span class="qn">12</span><span class="qt">Any concerns about connecting machines to an outside system, for IT, security or data reasons?</span></div>
+          <div class="q key" data-q="13"><span class="qn">13</span><span class="qt">If you were in my place, what would you build instead?</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="numbers">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="sect-num">§ 04 — Rough numbers (optional)</span>
+        <h2>What do unplanned stops cost, in your numbers?</h2>
+        <p>Only if it's useful. We can fill these in together. If the preventable share turns out to be small, that answers my question too.</p>
+        <div class="rule"></div>
+      </div>
+
+      <div class="calc">
+        <div class="calc-inputs">
+          <div class="field"><label for="c-lines">Number of lines</label><input id="c-lines" type="number" min="0" step="1" value="3" inputmode="numeric"></div>
+          <div class="field"><label for="c-cur">Currency</label><select id="c-cur"><option value="INR">₹ INR</option><option value="USD">$ USD</option><option value="EUR">€ EUR</option></select></div>
+          <div class="field"><label for="c-stops">Unplanned stops / line / month</label><input id="c-stops" type="number" min="0" step="0.5" value="4" inputmode="decimal"></div>
+          <div class="field"><label for="c-hours">Avg. hours lost per stop</label><input id="c-hours" type="number" min="0" step="0.25" value="3" inputmode="decimal"></div>
+          <div class="field"><label for="c-cost">Cost of 1 stopped hour</label><input id="c-cost" type="number" min="0" step="1000" value="50000" inputmode="numeric"></div>
+          <div class="field"><label for="c-waste">Material wasted per restart</label><input id="c-waste" type="number" min="0" step="1000" value="20000" inputmode="numeric"></div>
+          <div class="field wide">
+            <label for="c-share">Share caused by a part failing (vs. process)</label>
+            <input id="c-share" type="range" min="0" max="100" step="5" value="25">
+            <div class="range-row"><span>Mostly process</span><span id="c-share-val">25%</span><span>Mostly mechanical</span></div>
+          </div>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <div class="out"><span class="lbl">Unplanned stops per year</span><div class="val" id="o-stops">—</div><div class="sub" id="o-hours">—</div></div>
+          <div class="out"><span class="lbl">Yearly cost of unplanned stops</span><div class="val" id="o-total">—</div></div>
+          <div class="out hl"><span class="lbl">Portion from mechanical failures</span><div class="val" id="o-mech">—</div><div class="sub">The most an early warning system could help with, before counting what it misses.</div></div>
+          <p class="calc-note">These are placeholder numbers. Replace them with yours. Nothing entered here leaves this page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="unsure">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="sect-num">§ 05 — Where I'm unsure myself</span>
+        <h2>The risks I already see.</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="two-col">
+        <div class="cell"><span class="k">01</span><h3>False alarms</h3><p>A few wrong alerts could make people stop trusting the system, which may be worse than having no system at all.</p></div>
+        <div class="cell"><span class="k">02</span><h3>Others already do this</h3><p>Large automation companies and some startups already sell vibration monitoring. What would make a small, focused option worth choosing?</p></div>
+        <div class="cell"><span class="k">03</span><h3>Old lines vs. new lines</h3><p>Newer machines may already have sensors built in. Older lines need retrofitting. I don't know which case is more common in your plants.</p></div>
+        <div class="cell"><span class="k">04</span><h3>Who owns the problem</h3><p>It could be the owner, the plant head or the maintenance head. The person who feels the pain may not be the one who signs off.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="sect-num">§ 06 — What I'd be grateful for</span>
+        <h2>Not an order. Just your honest view.</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="asks">
+        <div class="ask"><span class="n">i.</span><div><h3>Your candid view today</h3><p>Even if it's "this won't work for us," that's valuable.</p></div></div>
+        <div class="ask"><span class="n">ii.</span><div><h3>A look at one line, if you're open to it</h3><p>In person or over video, so I understand the machines and the people who run them.</p></div></div>
+        <div class="ask"><span class="n">iii.</span><div><h3>A short chat with your maintenance head</h3><p>They know which failures actually hurt, and what they would ignore.</p></div></div>
+        <div class="ask"><span class="n">iv.</span><div><h3>Permission to follow up</h3><p>I'll share what I learn from these conversations, whether or not I keep going with the idea.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <span class="eyebrow">Thank you</span>
+      <h2>Thank you for your time. Whatever you think, it helps.</h2>
+      <p>Your experience with real lines is worth more to me than any market report.</p>
+      <p class="contact"><a href="mailto:karthiksj008@gmail.com">karthiksj008@gmail.com</a> · <a href="/">rpltechno.xyz</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="/" class="logo"><span class="mark"></span>RPLTechno</a>
+    <span class="foot-note">Discussion guide · predictive maintenance for packaging film lines · <a href="/">main site</a></span>
+  </div>
+</footer>
+
+<div class="notes-bar" role="region" aria-label="Notes">
+  <span id="notesStatus">Notes are saved in this browser only</span>
+  <button class="btn" id="copyNotes">Copy all</button>
+  <button class="btn" id="clearNotes">Clear</button>
+</div>
+
+<script>
+  // Notes mode: a textarea under each question, kept in this browser only.
+  const NOTES_KEY = 'rpl-discuss-notes-v1';
+  let notes = {};
+  try { notes = JSON.parse(localStorage.getItem(NOTES_KEY) || '{}') || {}; } catch (e) { notes = {}; }
+  const saveNotes = () => { try { localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); } catch (e) {} };
+
+  document.querySelectorAll('.q').forEach(q => {
+    const id = q.dataset.q;
+    const wrap = document.createElement('div');
+    wrap.className = 'note';
+    const ta = document.createElement('textarea');
+    ta.placeholder = 'What they said…';
+    ta.setAttribute('aria-label', 'Notes for question ' + id);
+    ta.value = notes[id] || '';
+    ta.addEventListener('input', () => { notes[id] = ta.value; saveNotes(); });
+    wrap.appendChild(ta);
+    q.appendChild(wrap);
+  });
+
+  const toggle = document.getElementById('notesToggle');
+  const setNotesMode = on => {
+    document.body.classList.toggle('notes-on', on);
+    toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+  };
+  toggle.addEventListener('click', () => setNotesMode(!document.body.classList.contains('notes-on')));
+  if (new URLSearchParams(location.search).has('notes')) setNotesMode(true);
+
+  const status = document.getElementById('notesStatus');
+  const flash = msg => { status.textContent = msg; setTimeout(() => status.textContent = 'Notes are saved in this browser only', 2200); };
+
+  document.getElementById('copyNotes').addEventListener('click', async () => {
+    const lines = [...document.querySelectorAll('.q')].map(q => {
+      const n = notes[q.dataset.q];
+      return n && n.trim() ? `Q${q.dataset.q}. ${q.querySelector('.qt').textContent}\n${n.trim()}\n` : null;
+    }).filter(Boolean);
+    const text = lines.length ? lines.join('\n') : '(no notes yet)';
+    try { await navigator.clipboard.writeText(text); flash('Copied to clipboard'); }
+    catch (e) { flash('Copy failed — select the text manually'); }
+  });
+  document.getElementById('clearNotes').addEventListener('click', () => {
+    if (!confirm('Clear all notes on this page?')) return;
+    notes = {}; saveNotes();
+    document.querySelectorAll('.note textarea').forEach(t => t.value = '');
+    flash('Cleared');
+  });
+
+  // Rough numbers
+  const $ = id => document.getElementById(id);
+  const num = id => Math.max(0, parseFloat($(id).value) || 0);
+  const compact = (v, cur) => {
+    const sym = { INR: '₹', USD: '$', EUR: '€' }[cur];
+    if (cur === 'INR') {
+      if (v >= 1e7) return sym + (v / 1e7).toFixed(v >= 1e8 ? 0 : 1) + ' Cr';
+      if (v >= 1e5) return sym + (v / 1e5).toFixed(v >= 1e6 ? 0 : 1) + ' L';
+      return sym + Math.round(v).toLocaleString('en-IN');
+    }
+    if (v >= 1e6) return sym + (v / 1e6).toFixed(1) + 'M';
+    if (v >= 1e3) return sym + (v / 1e3).toFixed(0) + 'k';
+    return sym + Math.round(v);
+  };
+  function calc() {
+    const lines = num('c-lines'), stops = num('c-stops'), hours = num('c-hours');
+    const cost = num('c-cost'), waste = num('c-waste'), share = num('c-share') / 100;
+    const cur = $('c-cur').value;
+    const stopsYr = lines * stops * 12;
+    const hoursYr = stopsYr * hours;
+    const total = stopsYr * (hours * cost + waste);
+    $('c-share-val').textContent = Math.round(share * 100) + '%';
+    $('o-stops').textContent = Math.round(stopsYr).toLocaleString();
+    $('o-hours').textContent = Math.round(hoursYr).toLocaleString() + ' hours of stopped lines';
+    $('o-total').textContent = compact(total, cur);
+    $('o-mech').textContent = compact(total * share, cur);
+  }
+  document.querySelectorAll('.calc input, .calc select').forEach(el => el.addEventListener('input', calc));
+  calc();
+</script>
+</body>
+</html>
